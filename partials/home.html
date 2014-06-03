@@ -1,0 +1,26 @@
+<header>
+  <h1>Blog du produit XXXXXXX</h1>
+</header>
+
+<section id="main">
+
+  <h1>Articles disponibles :</h1>
+  <br>
+  Rechercher : <input ng-model="query">
+
+  <div class="row">
+    <div class="col-6 article" ng-repeat="article in articles | array | filter:query">
+      <h2><a href="#/{{article.lien}}">{{article.titre}}</a></h2>
+      <p>
+        {{article.description}}
+      </p>
+      <em>Posté le {{article.date}}</em>
+    </div>
+  </div>
+</section>
+
+<!-- Footer
+================================================== -->
+<footer>
+  <p>Réalisé par l'agence HEPTA</p>
+</footer>
