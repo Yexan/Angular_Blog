@@ -1,3 +1,14 @@
+Faire marcher le projet
+-----------------------
+
+>
+> Pour ce faire tu dois modifier le Path par le path de ton projet depuis la racine de ton serveur (local ou non) dans :
+> * dans le fichier index.html dans le head => le href de la balise base
+> * Dans le .htaccess => RewriteBase /chemin/vers/ton/répertoire/depuis/ton/serveur/
+>
+
+
+
 Où modifier le CSS 
 ------------------
 
