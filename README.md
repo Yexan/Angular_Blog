@@ -1,5 +1,5 @@
 Où modifier le CSS 
-==================
+------------------
 
 >
 > Dans css/screen.css
@@ -7,7 +7,7 @@ Où modifier le CSS
 
 
 Comment ajouter un article
-==================
+--------------------------
 
 >
 > - Dans js/app.js -> ajouter une route avec le nom de l'article (sous forme de slug) et donner un nom de controller
@@ -19,8 +19,16 @@ Comment ajouter un article
 
 
 Comment personnaliser la description ?
-==================
+--------------------------------------
 
 >
 > Le champ description de la page de chaque article interprète le HTML, tu peux donc mettre des balises dans le champs description (ex images, liens etc)
+>
+
+
+Que dois-je faire pour le module de commentaire de chaque article ? 
+-------------------------------------------------------------------
+
+>
+> Absolument rien, chaque article créé à un flux de commentaire distinct généré automatiquement ! :D
 >
