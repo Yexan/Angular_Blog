@@ -12,8 +12,8 @@ var blogApp = angular.module('blogApp', [
   'blogDirectives'
 ]);
 
-blogApp.config(['$routeProvider',
-  function($routeProvider) {
+blogApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
         templateUrl: 'partials/home.html',
@@ -30,4 +30,6 @@ blogApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/'
       });
+      $locationProvider.html5Mode(true);
+      $locationProvider.hashPrefix('!');
   }]);

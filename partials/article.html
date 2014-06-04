@@ -8,6 +8,10 @@
   <p ng-bind-html="art.description">
     <!-- description -->
   </p>
+  <dir-disqus disqus-shortname="yexan"
+              disqus-identifier="{{art.titre}}"
+              disqus-url="http://adrienmartinet.com/tests/hepta_blog/{{art.lien}}">
+  </dir-disqus>
 </section>
 
 <!-- Footer

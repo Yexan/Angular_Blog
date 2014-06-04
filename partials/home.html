@@ -10,7 +10,7 @@
 
   <div class="row">
     <div class="col-6 article" ng-repeat="article in articles | array | filter:query">
-      <h2><a href="#/{{article.lien}}">{{article.titre}}</a></h2>
+      <h2><a href="./{{article.lien}}">{{article.titre}}</a></h2>
       <p>
         {{article.description}}
       </p>
