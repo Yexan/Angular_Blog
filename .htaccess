@@ -1,5 +1,5 @@
 Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /tests/hepta_blog/
-RewriteRule ^(js|css|img|lib|partials)($|/) - [L]
+RewriteRule ^(js|json|css|img|lib|partials)($|/) - [L]
 RewriteRule ^(.*)$ index.html [L]

@@ -4,6 +4,7 @@
 
 var blogApp = angular.module('blogApp', [
   'ngRoute',
+  'ngResource',
   'ngSanitize',
   'blogAnimations',
   'blogControllers',
@@ -19,13 +20,9 @@ blogApp.config(['$routeProvider', '$locationProvider',
         templateUrl: 'partials/home.html',
         controller: 'homeCtrl'
       }).
-      when('/article-1', {
+      when('/:slug', {
         templateUrl: 'partials/article.html',
-        controller: 'article1Ctrl'
-      }).
-      when('/article-2', {
-        templateUrl: 'partials/article.html',
-        controller: 'article2Ctrl'
+        controller: 'articleCtrl'
       }).
       otherwise({
         redirectTo: '/'

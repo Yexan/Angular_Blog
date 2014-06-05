@@ -4,48 +4,16 @@
 
 var blogControllers = angular.module('blogControllers', []);
 
-blogControllers.controller('homeCtrl', ['$scope', 
-  function($scope) {
-    $scope.articles = [
-    	{
-	    	'titre': 'Article 1',
-	    	'lien': 'article-1',
-	   		'date': '03/06/2014',
-	     	'description': 'Premier article posté sur le blog le 03/06/2014 !'
-	 	},
-	 	{
-	    	'titre': 'Article 2',
-	    	'lien': 'article-2',
-	   		'date': '04/06/2014',
-	     	'description': 'Deuxième article posté sur le blog le 04/06/2014 !'
-	 	}
-    ];
-  }
-]);
-
-blogControllers.controller('article1Ctrl', ['$scope', 
-  function($scope) {
-    $scope.article = [
-    	{
-	    	'titre': 'Article 1',
-	    	'lien': 'article-1',
-	   		'date': '03/06/2014',
-	     	'description': 'Premier article posté sur le blog le 03/06/2014 !'
-	 	}
-    ];
+blogControllers.controller('homeCtrl', ['$scope', 'GetJSON', 
+  function($scope, GetJSON) {
+    $scope.articles = GetJSON.getSomething({JSON: 'article_list.json'}, function(articles){});
   }
 ]);
 
 
-blogControllers.controller('article2Ctrl', ['$scope', 
-  function($scope) {
-    $scope.article = [
-    	{
-	    	'titre': 'Article 2',
-	    	'lien': 'article-2',
-	   		'date': '04/06/2014',
-	     	'description': 'Deuxième article posté sur le blog le 04/06/2014 !'
-	 	}
-    ];
+blogControllers.controller('articleCtrl', ['$scope', 'GetJSON', '$routeParams', '$location',
+  function($scope, GetJSON, $routeParams, $location) {
+    $scope.article = GetJSON.getSomething({JSON: $routeParams.slug+'.json'}).$promise.then(function(data) { $scope.article = data; }, function(error){ $location.path('/'); });
+
   }
 ]);
