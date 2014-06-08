@@ -1,45 +1,46 @@
-Faire marcher le projet
------------------------
+# Angular Blog
 
->
-> Pour ce faire tu dois modifier le Path par le path de ton projet depuis la racine de ton serveur (local ou non) dans :
-> * dans le fichier index.html dans le head => le href de la balise base
-> * Dans le .htaccess => RewriteBase /chemin/vers/ton/répertoire/depuis/ton/serveur/
->
+## How it's work 
 
+This is a simple and quick blog based on AngularJs and disqus.
+To add an article, you just have to add a JSON file in the JSON folder to create an new article (new route + new page + new comments flow).
+For the moment, you must edit article_list.json file manually to add your article link to the home page.
 
 
-Où modifier le CSS 
-------------------
+## Make it work's
 
->
-> Dans css/screen.css
->
+### Path to your project
+
+The first thing you have to change is the path of your project from your server : 
+ * In the index.html file in the head :
+ ```html
+    <base href="/path/to/you/project/"></base>
+ ```
+ * In the .htaccess 
+ ```htaccess
+    RewriteBase /path/to/you/project/
+ ```
+
+### Disqus ID 
+
+Then, you will have to change the disqus ID to link the comment flow with your account.
+Edit /partials/article.html this way :
+```html
+    <dir-disqus disqus-shortname="YourDisqusID"
+              disqus-identifier="{{art.titre}}"
+              disqus-url="http://path.com/to/your/project/{{art.lien}}">
+  </dir-disqus>
+ ```
+
+## Personalized
+
+### Style modification
+
+You can modify css/screen.css to apply your style
 
 
-Comment ajouter un article
---------------------------
+### Article
 
->
-> - Dans js/app.js -> ajouter une route avec le nom de l'article (sous forme de slug) et donner un nom de controller
->
-> - Dans js/controller.js : 
->    * dans le homeCtrl -> ajouter dans le $scope.articles les données du nouvel article
->    * créer le controller défini dans app.js et renseigner $scope.article avec les données voulues
->
+**Note**: make the JSON file basename correspond to the path of your article (with a slug style).
 
-
-Comment personnaliser la description ?
---------------------------------------
-
->
-> Le champ description de la page de chaque article interprète le HTML, tu peux donc mettre des balises dans le champs description (ex images, liens etc)
->
-
-
-Que dois-je faire pour le module de commentaire de chaque article ? 
--------------------------------------------------------------------
-
->
-> Absolument rien, chaque article créé à un flux de commentaire distinct généré automatiquement ! :D
->
+**Note 2**: The description field in your JSON file is interpreted in the template file like HTML so feel free to write your article in HTML ! :) 
