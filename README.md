@@ -13,11 +13,14 @@ For the moment, you must edit article_list.json file manually to add your articl
 
 The first thing you have to change is the path of your project from your server : 
  * In the index.html file in the head :
- ```html
+
+```html
     <base href="/path/to/you/project/"></base>
- ```
+```
+
  * In the .htaccess 
- ```htaccess
+ 
+```htaccess
     RewriteBase /path/to/you/project/
  ```
 
@@ -26,7 +29,7 @@ The first thing you have to change is the path of your project from your server 
 Then, you will have to change the disqus ID to link the comment flow with your account.
 Edit /partials/article.html this way :
 ```html
-    <dir-disqus disqus-shortname="YourDisqusID"
+  <dir-disqus disqus-shortname="YourDisqusID"
               disqus-identifier="{{art.titre}}"
               disqus-url="http://path.com/to/your/project/{{art.lien}}">
   </dir-disqus>
@@ -44,3 +47,8 @@ You can modify css/screen.css to apply your style
 **Note**: make the JSON file basename correspond to the path of your article (with a slug style).
 
 **Note 2**: The description field in your JSON file is interpreted in the template file like HTML so feel free to write your article in HTML ! :) 
+
+
+## Demo
+
+You can find a demo here : http://adrienmartinet.com/tests/hepta_blog/ 
